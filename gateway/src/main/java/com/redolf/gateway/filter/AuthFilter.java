@@ -44,7 +44,8 @@ public class AuthFilter implements GlobalFilter, Ordered {
     }
 
     private boolean isAuth(String routeId, String key){
-        ApiKey record = getApiKey(key);
+        HelperMethods methods = new HelperMethods();
+        ApiKey record = methods.getApiKey(key);
         if (record != null){
              return record.getServices().contains(routeId);
         }else {
