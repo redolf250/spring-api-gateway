@@ -1,5 +1,6 @@
 package com.redolf.gateway.config;
 
+import com.redolf.gateway.utils.AppConstant;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -10,12 +11,14 @@ public class AppConfig {
     @Bean
     public RouteLocator routeLocator(RouteLocatorBuilder builder){
         return builder.routes()
-                .route("service1",predicateSpec -> predicateSpec
-                        .path("/**")
-                        .uri("http://localhost:8002/api/v1"))
-                .route("service2",predicateSpec -> predicateSpec
-                        .path("/**")
-                        .uri("http://localhost:8002/api/v1"))
+                .route(AppConstant.STUDENT_SERVICE_KEY, spec -> spec
+                        .path("/api/v1/student-service/**")
+                        .filters(filter -> filter.stripPrefix(2))
+                        .uri("http://localhost:8001"))
+                .route(AppConstant.PAYMENT_SERVICE_KEY,spec -> spec
+                        .path("/api/v1/payment-service/**")
+                        .filters(filter -> filter.stripPrefix(2))
+                        .uri("http://localhost:8002"))
                 .build();
     }
 }

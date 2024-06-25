@@ -1,16 +1,15 @@
 package com.redolf.paymentservice.controller;
 
-import com.redolf.paymentservice.utils.PaymentUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.redolf.paymentservice.utils.PaymentUtils.*;
+import static com.redolf.paymentservice.utils.PaymentUtils.getPayments;
 
 @RestController
-@RequestMapping("/api/v1")
+//@RequestMapping("/api/v1/payment-service")
 public class PaymentController {
 
     @GetMapping("/payments")

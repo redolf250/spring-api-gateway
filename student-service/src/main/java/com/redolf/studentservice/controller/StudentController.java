@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.redolf.studentservice.utils.StudentUtils.*;
 
 @RestController
-@RequestMapping("/api/v1")
+//@RequestMapping("/api/v1/student-service")
 public class StudentController {
     @GetMapping("/students")
     private ResponseEntity<?> getStudent(){
