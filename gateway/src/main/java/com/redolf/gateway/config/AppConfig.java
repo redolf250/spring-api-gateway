@@ -13,11 +13,11 @@ public class AppConfig {
         return builder.routes()
                 .route(AppConstant.STUDENT_SERVICE_KEY, spec -> spec
                         .path("/api/v1/student-service/**")
-                        .filters(filter -> filter.stripPrefix(2))
+                        .filters(filter -> filter.stripPrefix(3))
                         .uri("http://localhost:8001"))
                 .route(AppConstant.PAYMENT_SERVICE_KEY,spec -> spec
                         .path("/api/v1/payment-service/**")
-                        .filters(filter -> filter.stripPrefix(2))
+                        .filters(filter -> filter.stripPrefix(3))
                         .uri("http://localhost:8002"))
                 .build();
     }

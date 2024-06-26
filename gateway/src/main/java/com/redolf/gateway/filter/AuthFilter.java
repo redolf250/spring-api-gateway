@@ -3,7 +3,6 @@ package com.redolf.gateway.filter;
 import com.redolf.gateway.dto.ApiKey;
 import com.redolf.gateway.utils.HelperMethods;
 import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.cloud.gateway.route.Route;
@@ -18,8 +17,6 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-import static com.redolf.gateway.utils.HelperMethods.*;
-
 @Slf4j
 @Component
 public class AuthFilter implements GlobalFilter, Ordered {
@@ -27,6 +24,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         List<String> apiKeyHeader = exchange.getRequest().getHeaders().get("gatewaykey");
         log.info("api key: {}", apiKeyHeader);
+        log.info("getURI {}",exchange.getRequest().getURI());
 
         Route route = exchange.getAttribute(ServerWebExchangeUtils.GATEWAY_ROUTE_ATTR);
         String routeId = route!=null ? route.getId() : null;
