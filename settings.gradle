@@ -9,6 +9,6 @@
 
 rootProject.name = 'parent-module'
 include('ApiKeyGenerator')
-include('payment-service')
+include('gateway')
 include('student-service')
 include('payment-service')
