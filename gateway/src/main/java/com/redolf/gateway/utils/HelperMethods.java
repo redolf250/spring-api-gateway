@@ -1,14 +1,13 @@
 package com.redolf.gateway.utils;
 
 import com.redolf.gateway.dto.ApiKey;
-import lombok.experimental.UtilityClass;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-import static com.redolf.gateway.utils.AppConstant.*;
+import static com.redolf.gateway.utils.AppConstant.PAYMENT_SERVICE_KEY;
+import static com.redolf.gateway.utils.AppConstant.STUDENT_SERVICE_KEY;
 
 public class HelperMethods {
     public List<ApiKey> getKeys() {
